@@ -10,8 +10,9 @@
         $cpf = $_POST['cpf'];
         $data_filiacao = $_POST['data_filiacao'];
 
+        $chamadaSql = "INSERT INTO associados(nome,email,cpf,data_filiacao) VALUES ('$nome', '$email', '$cpf', '$data_filiacao')";
         # Inserir dados na tabela "associados"
-        $resultado = mysqli_query($con, "INSERT INTO associados(nome,email,cpf,data_filiacao) VALUES ('$nome', '$email', '$cpf', '$data_filiacao')");
+        $resultado = $con->query($chamadaSql);
         header('Location: listar-associados.php');
     }
 
