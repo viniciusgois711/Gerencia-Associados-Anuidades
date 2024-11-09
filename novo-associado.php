@@ -11,7 +11,8 @@
         $data_filiacao = $_POST['data_filiacao'];
 
         # Inserir dados na tabela "associados"
-        $result = mysqli_query($con, "INSERT INTO associados(nome,email,cpf,data_filiacao) VALUES ('$nome', '$email', '$cpf', '$data_filiacao')");
+        $resultado = mysqli_query($con, "INSERT INTO associados(nome,email,cpf,data_filiacao) VALUES ('$nome', '$email', '$cpf', '$data_filiacao')");
+        header('Location: listar-associados.php');
     }
 
 ?>
@@ -25,7 +26,7 @@
 </head>
 <body>
     <h1>Criar novo associado</h1>
-
+    <a href="listar-associados.php">Voltar</a>
     <form action="novo-associado.php" method="POST">
         <label for="nome">Nome: </label>
         <input type="text" name="nome" id="nome"><br>
