@@ -3,7 +3,7 @@
     # Quando o usuário clicar no botão de editar o !empty testa se realmente tem um id na chamada
     if(!empty($_GET['id'])){
 
-        include("conexao.php");
+        include("../conexao.php");
 
         $id = $_GET['id'];
 
