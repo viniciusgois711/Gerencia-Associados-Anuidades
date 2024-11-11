@@ -1,7 +1,14 @@
 <?php
+
     include("../conexao.php");
 
-    $resultado = $con->query("SELECT * FROM associados");
+    if(!empty($_GET['id'])){
+        
+        $id = $_GET['id'];
+
+        $chamada = "SELECT * FROM anuidades WHERE id_associado=$id";
+        $resultado = $con->query($chamada);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,18 +29,15 @@
         </div>
     </nav>
 
-    <h1 class="mt-4 ms-3">Listar Associados</h1>
-    <a href="novo-associado.php" class="btn btn-success ms-3 mb-3">Novo Associado</a>
+    <h1 class="mt-4 ms-3">Listagem de Anuidades</h1>
+    <a href="listar-associados.php" class="btn btn-secondary ms-3 mb-3">Voltar</a>
     <div class="m-5">  
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">Data Filiação</th>
-                    <th scope="col">Ações</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Valor</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,21 +45,9 @@
                     while($data = mysqli_fetch_assoc($resultado)){
                         echo "<tr>";
                         echo "<td>" . $data['id'] . "</td>";
-                        echo "<td>" . $data['nome'] . "</td>";
-                        echo "<td>" . $data['email'] . "</td>";
-                        echo "<td>" . $data['cpf'] . "</td>";
-                        echo "<td>" . $data['data_filiacao'] . "</td>";
-                        echo "<td>
-                                <a class='btn btn-primary' href='editar-associado.php?id=$data[id]'>
-                                    Editar
-                                </a>
-                                <a class='btn btn-danger' href='deletar-associado.php?id=$data[id]'>
-                                    Excluir
-                                </a>
-                                <a class='btn btn-warning' href='anuidades-do-associado.php?id=$data[id]'>
-                                    Listar Anuidades
-                                </a>
-                             </td>";
+                        echo "<td>" . $data['ano'] . "</td>";
+                        echo "<td>" . $data['valor'] . "</td>";
+                        
                         echo "</tr>";
                     }
                 ?>

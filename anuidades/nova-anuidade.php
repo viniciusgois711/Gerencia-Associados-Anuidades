@@ -10,7 +10,7 @@
       $valor = $_POST['valor'];
 
       # Procura todos os associados cadastrados depois do ano de filicao
-      $chamadaAno = "SELECT * FROM associados WHERE YEAR(data_filiacao)>=$ano";
+      $chamadaAno = "SELECT * FROM associados WHERE YEAR(data_filiacao)<=$ano";
       $resultadoAno = $con->query($chamadaAno);
 
       # Se houver pelo menos um resultado, entra no while
