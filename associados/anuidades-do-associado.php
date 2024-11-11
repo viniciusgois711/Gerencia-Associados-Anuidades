@@ -44,7 +44,9 @@
             </thead>
             <tbody>
                 <?php
+                    $soma = 0;
                     while($data = mysqli_fetch_assoc($resultado)){
+                        $soma += $data['valor'];
                         echo "<tr>";
                         echo "<td>" . $data['id'] . "</td>";
                         echo "<td>" . $data['ano'] . "</td>";
@@ -52,6 +54,7 @@
                         
                         echo "</tr>";
                     }
+                    echo "<h3> A soma das anuidades do associado com id " . $id . " é de: " . $soma . "</h3>";
                 ?>
             </tbody>
         </table>
