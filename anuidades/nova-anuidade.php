@@ -52,11 +52,11 @@
         <form action="nova-anuidade.php" method="POST">
             <div class="mb-3">
                 <label for="ano" class="form-label">Ano:</label>
-                <input type="text" class="form-control" name="ano">
+                <input type="text" class="form-control" name="ano" required>
             </div>
             <div class="mb-3">
                 <label for="valor" class="form-label">Valor:</label>
-                <input type="text" class="form-control" name="valor">
+                <input type="text" class="form-control" name="valor" required>
             </div>
             <button type="submit" name="submit" class="btn btn-primary">Cadastrar</button>
         </form>
