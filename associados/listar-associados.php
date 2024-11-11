@@ -18,7 +18,7 @@
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <h2>Sistema de Associados</h2>
+            <a class="navbar-brand" href="../gerencia.html">Gerencia de Associados e Anuidades</a>
         </div>
     </nav>
 
