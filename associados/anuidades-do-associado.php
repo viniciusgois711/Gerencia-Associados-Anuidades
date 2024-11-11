@@ -25,10 +25,12 @@
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../gerencia.html">Gerencia de Associados e Anuidades</a>
+            <a class="navbar-brand" href="../gerencia.html" style="font-weight: bold; color: blue">
+                Gerência de Associados e Anuidades
+            </a>
         </div>
     </nav>
-
+    
     <h1 class="mt-4 ms-3">Listagem de Anuidades</h1>
     <a href="listar-associados.php" class="btn btn-secondary ms-3 mb-3">Voltar</a>
     <div class="m-5">  

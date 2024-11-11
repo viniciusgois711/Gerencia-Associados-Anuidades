@@ -41,7 +41,9 @@
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../gerencia.html">Gerencia de Associados e Anuidades</a>
+            <a class="navbar-brand" href="../gerencia.html" style="font-weight: bold; color: blue">
+                Gerência de Associados e Anuidades
+            </a>
         </div>
     </nav>
 

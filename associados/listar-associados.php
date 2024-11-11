@@ -1,6 +1,7 @@
 <?php
     include("../conexao.php");
 
+    # Pega todos da tabela de associados para serem exibidos
     $resultado = $con->query("SELECT * FROM associados");
 ?>
 
@@ -18,7 +19,9 @@
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../gerencia.html">Gerencia de Associados e Anuidades</a>
+            <a class="navbar-brand" href="../gerencia.html" style="font-weight: bold; color: blue">
+                Gerência de Associados e Anuidades
+            </a>
         </div>
     </nav>
 
@@ -38,6 +41,7 @@
             </thead>
             <tbody>
                 <?php
+                    # Pega linha por linha e exibe cada campo
                     while($data = mysqli_fetch_assoc($resultado)){
                         echo "<tr>";
                         echo "<td>" . $data['id'] . "</td>";
