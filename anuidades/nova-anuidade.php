@@ -2,14 +2,28 @@
 
     include("../conexao.php");
 
+    # Se o botao submit foi clicado
     if(isset($_POST['submit'])){
 
-        $ano = $_POST['ano'];
-        $valor = $_POST['valor'];
+      # Guarda o ano e o valor que o usuário digitou
+      $ano = $_POST['ano'];
+      $valor = $_POST['valor'];
 
-        $chamadaSql = "INSERT INTO anuidades(ano,valor) VALUES ('$ano', '$valor')";
-        $resultado = $con->query($chamadaSql);
-        header('Location: listar-anuidades.php');
+      # Procura todos os associados cadastrados depois do ano de filicao
+      $chamadaAno = "SELECT * FROM associados WHERE YEAR(data_filiacao)>=$ano";
+      $resultadoAno = $con->query($chamadaAno);
+
+      # Se houver pelo menos um resultado, entra no while
+      if($resultadoAno->num_rows > 0){
+        # Enquanto houver associados que atendem a $chamadaAno, adiciona na tabela de anuidades
+        while($data = mysqli_fetch_assoc($resultadoAno)){
+          $id_associado = $data['id'];
+          $chamadaAdd = "INSERT INTO anuidades(ano,valor,id_associado) VALUES ('$ano', '$valor', '$id_associado')";
+          $resultadoChamada = $con->query($chamadaAdd);
+        }
+      }
+
+      header('Location: listar-anuidades.php');
     }
 
 ?>

@@ -1,15 +1,16 @@
 <?php
 
 
-    if(!empty($_GET['id'])){
+    if(!empty($_GET['ano'])){
     
         include("../conexao.php");
-        $id = $_GET['id'];
-        $chamada = "SELECT * FROM anuidades WHERE id=$id";
+        $ano = $_GET['ano'];
+
+        $chamada = "SELECT * FROM anuidades WHERE ano=$ano";
         $resultado = $con->query($chamada);
 
         if($resultado->num_rows >0){
-            $chamadaDelecao = "DELETE FROM anuidades WHERE id=$id";
+            $chamadaDelecao = "DELETE FROM anuidades WHERE ano=$ano";
              
             $resultadoDelecao = $con->query($chamadaDelecao);
         }

@@ -8,7 +8,8 @@
         $ano = $_POST['ano'];
         $valor = $_POST['valor'];
 
-        $chamadaSql = "UPDATE anuidades SET ano='$ano', valor='$valor' WHERE id='$id'";
+        // Atualiza o valor de todos campos que tiverem o ano que o usuarios escolheu
+        $chamadaSql = "UPDATE anuidades SET valor='$valor' WHERE ano='$ano'";
 
         $resultado = $con->query($chamadaSql);
 
